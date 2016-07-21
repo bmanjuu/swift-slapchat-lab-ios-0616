@@ -43,23 +43,6 @@ class TableViewController: UITableViewController {
         
     }
     
-//    func generateTestData() {
-//        let addMessage = NSEntityDescription.entityForName("Message", inManagedObjectContext: self.dataStore.managedObjectContext)
-//        
-//        if let addMessage = addMessage {
-//            var newMessage = Message(entity: addMessage, insertIntoManagedObjectContext: self.dataStore.managedObjectContext)
-//            newMessage.content = "Hello"
-//            self.dataStore.managedObjectContext.insertObject(newMessage)
-//            
-//            newMessage = Message(entity: addMessage, insertIntoManagedObjectContext: self.dataStore.managedObjectContext)
-//            newMessage.createdAt = NSDate()
-//            self.dataStore.managedObjectContext.insertObject(newMessage)
-//            
-//            self.dataStore.saveContext()
-//            self.dataStore.fetchData()
-//        }
-//    }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentMessages.count
     }

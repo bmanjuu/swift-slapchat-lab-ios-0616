@@ -46,13 +46,14 @@ class DataStore : NSObject {
         func generateTestData() {
             let addMessage = NSEntityDescription.entityForName("Message", inManagedObjectContext: self.managedObjectContext)
     
-            var newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
+            let newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
                 newMessage.content = "Hello"
-            self.managedObjectContext.insertObject(newMessage)
-    
-            newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
                 newMessage.createdAt = NSDate()
             self.managedObjectContext.insertObject(newMessage)
+    
+//            newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
+//            
+//            self.managedObjectContext.insertObject(newMessage)
     
             self.saveContext()
             self.fetchData()
