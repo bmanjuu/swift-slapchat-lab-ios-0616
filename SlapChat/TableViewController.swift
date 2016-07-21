@@ -55,7 +55,10 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
         
         cell.textLabel!.text = currentMessages[indexPath.row].content
-        cell.detailTextLabel!.text = String(currentMessages[indexPath.row].createdAt)
+        
+        if let createdAt = currentMessages[indexPath.row].createdAt {
+             cell.detailTextLabel!.text = String(createdAt)
+            }
         
         return cell
     }
