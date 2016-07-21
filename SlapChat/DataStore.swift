@@ -13,27 +13,8 @@ class DataStore : NSObject {
     
 
     static let sharedDataStore = DataStore()
-    var messages : [Message]?
-    
-    override init() {
-        super.init()
-        
-        let addMessage = NSEntityDescription.entityForName("Message", inManagedObjectContext: self.managedObjectContext)
-        
-        if let addMessage = addMessage {
-            var newMessage = Message(entity: addMessage, insertIntoManagedObjectContext: self.managedObjectContext)
-            newMessage.content = "Hello"
-            self.managedObjectContext.insertObject(newMessage)
-            
-            newMessage = Message(entity: addMessage, insertIntoManagedObjectContext: self.managedObjectContext)
-            newMessage.createdAt = NSDate()
-            self.managedObjectContext.insertObject(newMessage)
-            
-            self.saveContext()
-        }
-    }
-    
-    
+    var messages : [Message] = []
+
     // MARK: - Core Data Saving support
     
     func saveContext () {
@@ -55,12 +36,28 @@ class DataStore : NSObject {
         
         let fetchRequest = NSFetchRequest(entityName: "Message")
         do {
-            self.messages = try self.managedObjectContext.executeFetchRequest(fetchRequest) as? [Message]
+            self.messages = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [Message]
         } catch let nserror as NSError {
             print("There was an error \(nserror)")
         }
         
     }
+    
+        func generateTestData() {
+            let addMessage = NSEntityDescription.entityForName("Message", inManagedObjectContext: self.managedObjectContext)
+    
+            var newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
+                newMessage.content = "Hello"
+            self.managedObjectContext.insertObject(newMessage)
+    
+            newMessage = Message(entity: addMessage!, insertIntoManagedObjectContext: self.managedObjectContext)
+                newMessage.createdAt = NSDate()
+            self.managedObjectContext.insertObject(newMessage)
+    
+            self.saveContext()
+            self.fetchData()
+        }
+    
 
     // MARK: - Core Data stack
     // Managed Object Context property getter. This is where we've dropped our "boilerplate" code.
