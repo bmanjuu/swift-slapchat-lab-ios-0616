@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
+    
+    var currentMessages : [Message]?
+    let dataStore = DataStore.sharedDataStore
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
