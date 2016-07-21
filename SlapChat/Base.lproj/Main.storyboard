@@ -45,12 +45,51 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hPh-B6-6eu">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="SYd-iy-GQY"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="SYd-iy-GQY">
+                            <connections>
+                                <segue destination="3hG-EC-wFb" kind="presentation" id="pZn-qF-j8f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejz-2p-aJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957" y="339"/>
+        </scene>
+        <!--Add Message View Controller-->
+        <scene sceneID="tH9-3o-GzR">
+            <objects>
+                <viewController id="3hG-EC-wFb" customClass="AddMessageViewController" customModule="SlapChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gya-qr-c4f"/>
+                        <viewControllerLayoutGuide type="bottom" id="5P7-jP-RhA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foU-nf-jdG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtB-9D-Vy6">
+                                <rect key="frame" x="158" y="112" width="284" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAF-3z-XOA">
+                                <rect key="frame" x="283" y="161" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveMessageTapped:" destination="3hG-EC-wFb" eventType="touchUpInside" id="TlF-km-0VT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addMessageTextField" destination="dtB-9D-Vy6" id="aVE-eM-rfd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2t-d2-94t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GI5-Nd-ee2">

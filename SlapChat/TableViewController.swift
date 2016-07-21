@@ -12,7 +12,7 @@ import CoreData
 class TableViewController: UITableViewController {
     
     var currentMessages : [Message] = []
-    let dataStore = DataStore()
+    let dataStore = DataStore.sharedDataStore
 
     override func viewWillAppear(animated: Bool) {
         dataStore.fetchData()
